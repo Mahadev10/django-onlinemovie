@@ -8,3 +8,6 @@ def home(request):
 
 def testimonials(request):
     return render(request,"testimonials.html",{})
+def movie(request,movie_id):
+    movie_data=Movie.objects.get(id=movie_id)
+    return render(request,"movie.html",context={"movie":movie_data})    

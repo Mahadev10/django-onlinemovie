@@ -18,6 +18,7 @@ from django.urls import path
 from movieapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home),
-    path('testimonials', views.testimonials),
+    path('', views.home,name='home'),
+    path('testimonials', views.testimonials,name='testimonials'),
+    path('movie/<int:movie_id>', views.movie,name='movie'),
 ]
