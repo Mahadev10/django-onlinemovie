@@ -1,7 +1,23 @@
-{%extends 'base.html' %}
+{%extends 'base.html' %} {%block title%}Home{%endblock%} {%block content%}
+<h3 class="mt-4 text-center">Online Movie Application</h3>
+<div class="row mt-5">
+  {%for m in movies%}
+  <div class="col-sm">
+    <div class="card" style="width: 18rem">
+      <img src="https://img.youtube.com/vi/{{m.trailer}}/maxresdefault.jpg" class="card-img-top" alt="{{m.name}}.jpg" />
+      <div class="card-body">
+      {% if m.star >= 3 %}
+      <span class="badge badge-danger">Hot</span>
+      {% else %}
+      <span class="badge badge-warning">Just ok</span>
+      {% endif %}
+        <h5 class="card-title">{{ m.name }}</h5>
+        <p class="card-text">{{m.description}}</p>
+        <a href="#" class="btn btn-primary">Trailer</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 
-{%block title%}Home{%endblock%}
-
-{%block content%}
-<h3 class="mt-4 text-center" >Online Movie Application</h3>
 {%endblock%}
